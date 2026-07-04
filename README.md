@@ -29,15 +29,15 @@
 <img src="https://img.shields.io/badge/🎥_Project_Demo-red?style=for-the-badge"/>
 </a>
 
-<a href="#">
+<a href="https://github.com/jeelprajapati0606/Calculative_foundation/blob/main/Calculative%20Foundation/Calculative_Foundation-checkpoint.ipynb">
 <img src="https://img.shields.io/badge/📓_Jupyter_Notebook-orange?style=for-the-badge"/>
 </a>
 
-<a href="#">
+<a href="https://github.com/jeelprajapati0606/Calculative_foundation/blob/main/Calculative%20Foundation/Project%20_%20Calculative%20Foundation(Theory)%20_-.pdf">
 <img src="https://img.shields.io/badge/📄_Theory_Notes-blue?style=for-the-badge"/>
 </a>
 
-<a href="#">
+<a href="https://github.com/jeelprajapati0606/Calculative_foundation/blob/main/Calculative%20Foundation/Student_Performance_Dataset.csv">
 <img src="https://img.shields.io/badge/📊_Dataset-purple?style=for-the-badge"/>
 </a>
 
@@ -289,7 +289,7 @@ Rather than solving mathematical problems manually, the project performs calcula
 
 ## 📥 Download Dataset
 
-<a href="#">
+<a href="https://github.com/jeelprajapati0606/Calculative_foundation/blob/main/Calculative%20Foundation/Student_Performance_Dataset.csv">
 <img src="https://img.shields.io/badge/📊_Download_Dataset-7B1FA2?style=for-the-badge"/>
 </a>
 
@@ -313,7 +313,7 @@ Instead of memorizing formulas, this project focuses on **building intuition**, 
 
 <br>
 
-<a href="#">
+<a href="https://github.com/jeelprajapati0606/Calculative_foundation/blob/main/Calculative%20Foundation/Project%20_%20Calculative%20Foundation(Theory)%20_-.pdf">
 
 <img src="https://img.shields.io/badge/📄_Open_Theory_PDF-1976D2?style=for-the-badge"/>
 
@@ -590,290 +590,554 @@ Every implementation follows the same structure.
 
 ---
 
-# 📦 Step 1 — Import Required Libraries
+# 💻 Practical Implementation
 
-### 🎯 Objective
-
-Import all libraries required for mathematical computation, visualization, and machine learning.
-
-```python
-# Add your Python code here
-```
-
-### 📸 Output
-
-<p align="center">
-
-<img src="Images/01_import_libraries.png" width="900">
-
-</p>
-
-> 💡 **Observation:** Successfully imported all required Python libraries.
+The practical section demonstrates the implementation of Linear Algebra concepts using Python and the Student Performance Dataset. Each part contains multiple questions with their objectives, code, outputs, and observations.
 
 ---
 
-# 📂 Step 2 — Load Dataset
+# 📦 Initial Setup
+
+## 📌 Import Required Libraries
 
 ### 🎯 Objective
 
-Load the Student Performance Dataset into a Pandas DataFrame.
+Import all the required Python libraries for data manipulation, mathematical computation, visualization, and machine learning.
 
 ```python
-# Add your Python code here
+# # Import libraries
+import pandas as pd
+import numpy as np
+import statistics as stats
+import math
+import scipy
+from scipy import linalg
+from scipy.linalg import lu
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import seaborn as sns
+
+
 ```
 
-### 📸 Output
-
-<p align="center">
-
-<img src="Images/02_dataset.png" width="900">
-
-</p>
-
-> 💡 **Observation:** Dataset loaded successfully.
+> 💡 **Observation:** All required libraries were successfully imported.
 
 ---
 
-# 📊 Step 3 — Vector Operations
+## 📌 Load Student Performance Dataset
 
 ### 🎯 Objective
 
-Perform vector addition, subtraction, and scalar multiplication.
+Load the dataset into a Pandas DataFrame and verify its contents.
 
 ```python
-# Add your Python code here
+# data = pd.read_csv("Student_Performance_Dataset.csv")
+data.head()
 ```
 
 ### 📸 Output
 
-<p align="center">
+<img width="1437" height="182" alt="image" src="https://github.com/user-attachments/assets/cbb49bde-83c4-48ac-88ce-bf0db0363f8d" />
 
-<img src="Images/03_vector_operations.png" width="900">
-
-</p>
-
-> 💡 **Observation:** Verified vector arithmetic using Python.
+> 💡 **Observation:** Dataset loaded successfully and ready for further analysis.
 
 ---
 
-# 📏 Step 4 — Distance & Norm
+# 📊 Part A — Vector Fundamentals
 
-### 🎯 Objective
-
-Calculate Euclidean Distance and Vector Norm.
-
-```python
-# Add your Python code here
-```
-
-### 📸 Output
-
-<p align="center">
-
-<img src="Images/04_distance_norm.png" width="900">
-
-</p>
-
-> 💡 **Observation:** Distance measures similarity, while norm measures vector magnitude.
+This section covers the basic concepts of vectors and their operations using student performance data.
 
 ---
 
-# 🎯 Step 5 — Unit Vector
+## 🔹 Question 1 — Vector Representation & Operations
 
 ### 🎯 Objective
 
-Convert vectors into unit vectors.
+Represent student marks as vectors and perform basic vector operations such as addition, subtraction, and scalar multiplication.
 
 ```python
-# Add your Python code here
+# # student 1 score vector
+student_1 = data.loc[0, ['math_score', 'science_score', 'english_score']].to_numpy(dtype=float)
+
+
+# student 2 score vector
+student_2 = data.loc[1, ['math_score', 'science_score', 'english_score']].to_numpy(dtype=float)
+
+
+# student 3 score vector
+student_3 = data.loc[2, ['math_score', 'science_score', 'english_score']].to_numpy(dtype=float)
+
+
+print("Student 1 : ",student_1)
+print("Student 2 : ",student_2)
+print("Student 3 : ",student_3)
+
 ```
 
 ### 📸 Output
 
-<p align="center">
+<img width="249" height="80" alt="image" src="https://github.com/user-attachments/assets/94731bd3-461a-45d4-a3f6-0062178d46e1" />
 
-<img src="Images/05_unit_vector.png" width="900">
-
-</p>
-
-> 💡 **Observation:** Unit vectors preserve direction while normalizing magnitude.
+> 💡 **Observation:** Student marks were successfully represented as vectors, and basic vector operations were performed.
 
 ---
 
-# ⚫ Step 6 — Dot Product
+## 🔹 Question 2 — Distance & Vector Norm
 
 ### 🎯 Objective
 
-Compute similarity between vectors.
+Calculate the Euclidean Distance, L1 Norm, and L2 Norm between vectors.
 
 ```python
-# Add your Python code here
+# # L1 Norm
+l1_student1 = np.linalg.norm(student_1, ord=1)
+l1_student2 = np.linalg.norm(student_2, ord=1)
+l1_student3 = np.linalg.norm(student_3, ord=1)
+
+
+# L2 Norm
+l2_student1 = np.linalg.norm(student_1)
+l2_student2 = np.linalg.norm(student_2)
+l2_student3 = np.linalg.norm(student_3)
+
+print("Student:1 L1 norm: ",l1_student1)
+print("Student:2 L1 norm: ",l1_student2)
+print("Student:3 L1 norm: ",l1_student3)
+
+print()
+
+print("Student:1 L2 norm: ",l2_student1)
+print("Student:2 L2 norm: ",l2_student2)
+print("Student:3 L2 norm: ",l2_student3)
+
+
 ```
 
 ### 📸 Output
 
-<p align="center">
+<img width="332" height="160" alt="image" src="https://github.com/user-attachments/assets/c5630d8b-3cf3-4f5d-b5cd-405cd5b375d1" />
 
-<img src="Images/06_dot_product.png" width="900">
 
-</p>
-
-> 💡 **Observation:** Dot Product helps determine similarity and calculate angles.
+> 💡 **Observation:** The calculated norms represent vector magnitude, while Euclidean distance measures similarity between vectors.
 
 ---
 
-# ✖ Step 7 — Cross Product
+
+## 🔹 Question 3 — Dot Product & Angle Between Vectors
 
 ### 🎯 Objective
 
-Find the perpendicular vector in 3D space.
+Compute the dot product and determine the angle between two vectors.
 
 ```python
-# Add your Python code here
+# dot_product = np.dot(student_1, student_2)
+
+print("Dot Product = ",dot_product )
+
+cos_theta = np.dot(student_1, student_2) / (
+    np.linalg.norm(student_1) * np.linalg.norm(student_2)
+)
+
+angle = np.degrees(np.arccos(cos_theta))
+
+print("\nAngle =",angle)
 ```
 
 ### 📸 Output
 
-<p align="center">
+<img width="239" height="80" alt="image" src="https://github.com/user-attachments/assets/ea9cea8e-a51f-4c37-ad46-10ef4dc32e9f" />
 
-<img src="Images/07_cross_product.png" width="900">
 
-</p>
-
-> 💡 **Observation:** Cross Product produces a vector perpendicular to both input vectors.
+> 💡 **Observation:** The dot product measures vector similarity, while the angle represents their directional relationship.
 
 ---
 
-# 📍 Step 8 — Vector Projection
+## 🔹 Question 4 — Cross Product
 
 ### 🎯 Objective
 
-Project one vector onto another.
+Compute the cross product of two vectors and obtain the perpendicular vector.
 
 ```python
-# Add your Python code here
+# cross_product = np.cross(student_1, student_2)
+
+print("Cross Product = ",cross_product )
 ```
 
 ### 📸 Output
 
-<p align="center">
+<img width="337" height="34" alt="image" src="https://github.com/user-attachments/assets/7100faa0-1b3f-4f59-97e8-ca34f7cc653d" />
 
-<img src="Images/08_projection.png" width="900">
-
-</p>
-
-> 💡 **Observation:** Projection measures how much one vector points in the direction of another.
+> 💡 **Observation:** The resulting vector is perpendicular to both input vectors.
 
 ---
 
-# 🧮 Step 9 — Matrix Operations
+## 🔹 Question 5 — Vector Projection
 
 ### 🎯 Objective
 
-Perform addition, multiplication, transpose, and other matrix operations.
+Project one vector onto another using vector projection.
 
 ```python
-# Add your Python code here
+# projection = (np.dot(student_1, student_2) / np.dot(student_2, student_2)) * student_2
+
+print("Projection of Student_1 on Student_2\n", projection)
 ```
 
 ### 📸 Output
 
-<p align="center">
+<img width="310" height="56" alt="image" src="https://github.com/user-attachments/assets/22dabe5a-6706-4d5e-9eaa-30523cf2fdc7" />
 
-<img src="Images/09_matrix.png" width="900">
 
-</p>
-
-> 💡 **Observation:** Matrix operations form the backbone of modern Machine Learning.
+> 💡 **Observation:** Vector projection indicates how much one vector lies in the direction of another vector.
 
 ---
 
-# 📈 Step 10 — Eigenvalues & Eigenvectors
+# 🧮 Part B — Matrix Operations
 
-### 🎯 Objective
-
-Calculate eigenvalues and eigenvectors.
-
-```python
-# Add your Python code here
-```
-
-### 📸 Output
-
-<p align="center">
-
-<img src="Images/10_eigen.png" width="900">
-
-</p>
-
-> 💡 **Observation:** Eigenvectors reveal the principal directions of transformation.
+This section focuses on representing data in matrix form and performing various matrix operations.
 
 ---
 
-# 🔷 Step 11 — Singular Value Decomposition (SVD)
+## 🔹 Question 1 — Matrix Representation & Operations
 
 ### 🎯 Objective
 
-Perform matrix decomposition using Singular Value Decomposition.
+Create matrices from the dataset and perform matrix addition, multiplication, transpose, and other operations.
 
 ```python
-# Add your Python code here
+# matrix_addition = matrix + matrix
+
+print("Matrix Addition :\n", matrix_addition)
+
+print()
+
+matrix_multiplication = matrix.T @ matrix
+
+print("Matrix Multiplication: \n", matrix_multiplication)
 ```
 
 ### 📸 Output
 
-<p align="center">
+<img width="431" height="263" alt="image" src="https://github.com/user-attachments/assets/d5b8b3e7-37a3-43a5-8583-0a7f9c84bf6c" />
 
-<img src="Images/11_svd.png" width="900">
+```python
+transpose_matrix = matrix.T
 
-</p>
+print("Transpose_Matrix: \n", transpose_matrix)
 
-> 💡 **Observation:** SVD decomposes a matrix into three meaningful components.
+print("\n Shape of Matrix:", matrix.shape)
+```
+### 📸 Output
+
+<img width="340" height="126" alt="image" src="https://github.com/user-attachments/assets/8a609521-fe68-4f86-923c-f9423479b03b" />
+
+```python
+# Inverse:
+
+cov_matrix = np.cov(matrix.T)
+print("Covariance Matrix:\n ",cov_matrix )
+
+# inverse matrix:
+
+inverse_matrix = np.linalg.inv(cov_matrix)
+
+print("\ninverse_matrix:\n", inverse_matrix)
+```
+
+### 📸 Output
+
+<img width="409" height="203" alt="image" src="https://github.com/user-attachments/assets/8c9fddc2-8a0e-4e62-a598-329f6b49cdfb" />
+
+```python
+determinant = np.linalg.det(cov_matrix)
+
+print("Determinant =", determinant)
+```
+
+### 📸 Output
+
+<img width="260" height="34" alt="image" src="https://github.com/user-attachments/assets/1c72ab48-bbd4-434d-ad31-a4359861f93a" />
+
+> 💡 **Observation:** Matrix operations provide the mathematical foundation for many Machine Learning algorithms.
 
 ---
 
-# 📉 Step 12 — Principal Component Analysis (PCA)
-
-### 🎯 Objective
-
-Reduce dataset dimensions while preserving maximum variance.
-
-```python
-# Add your Python code here
-```
-
-### 📸 Output
-
-<p align="center">
-
-<img src="Images/12_pca.png" width="900">
-
-</p>
-
-> 💡 **Observation:** PCA simplifies data while retaining important information.
+# 📈 Part C — Linear Transformations & Geometry :
 
 ---
 
-# 🎯 Step 13 — Linear Discriminant Analysis (LDA)
+## 🔹 Question 1 — Explain line, plane, and hyperplane with respect to your dataset dimensions
 
-### 🎯 Objective
+<img width="1437" height="404" alt="image" src="https://github.com/user-attachments/assets/94e9b878-e550-4a4d-971e-42ca06aa1994" />
 
-Separate different classes using Linear Discriminant Analysis.
+
+---
+
+## 🔹 Question 2 — Show how dimensionality increases from 2D → 3D → higher dimensions with hyperplanes
+
+
 
 ```python
-# Add your Python code here
+##  2D Visualization :
+
+plt.figure(figsize=(7,5))
+
+plt.scatter(data['math_score'], data['science_score'])
+
+plt.xlabel("Math Score")
+plt.ylabel("Science Score")
+plt.title("2D Representation of Student Scores")
+
+plt.grid(True)
+
+plt.show()
 ```
 
 ### 📸 Output
 
-<p align="center">
+<img width="647" height="498" alt="image" src="https://github.com/user-attachments/assets/2d0245d7-92c6-42e3-8bfd-5ba548ed41f7" />
 
-<img src="Images/13_lda.png" width="900">
+---
 
-</p>
 
-> 💡 **Observation:** LDA maximizes class separability for classification problems.
+```python
+# 3D Visualization :
 
+fig = plt.figure(figsize=(10,8))
+
+ax = fig.add_subplot(111, projection='3d')
+
+ax.scatter(
+    data['math_score'],
+    data['science_score'],
+    data['english_score'],
+    color='green'
+)
+
+ax.set_xlabel("Math Score")
+ax.set_ylabel("Science Score")
+ax.set_zlabel("English Score")
+
+plt.title("3D Representation of Student Scores")
+
+plt.show()
+```
+
+### 📸 Output
+
+<img width="678" height="688" alt="image" src="https://github.com/user-attachments/assets/fec5eb73-5ddf-46c0-8959-76793e5bf0d9" />
+
+---
+
+```python
+# Hyperplane
+
+# Create a new feature
+data['average_score'] = data[
+    ['math_score', 'science_score', 'english_score']
+].mean(axis=1)
+
+print("Features used:")
+print(data[['math_score',
+            'science_score',
+            'english_score',
+            'average_score']].head())
+
+print("\nTotal Dimensions:", len(['math_score',
+                                  'science_score',
+                                  'english_score',
+                                  'average_score']))
+```
+
+### 📸 Output
+
+<img width="491" height="176" alt="image" src="https://github.com/user-attachments/assets/3455c1f6-4c17-49a0-8cdc-9fac032d73f9" />
+
+---
+# 📈 Part D — Eigen Analysis
+
+---
+
+## 🔹 Question 1 — Eigenvalues & Eigenvectors
+
+### 🎯 Objective
+
+Compute Eigenvalues and Eigenvectors to understand matrix transformations.
+
+```python
+# 
+# Eigenvalues and Eigenvectors of Covariance Matrix
+eigen_values, eigen_vectors = np.linalg.eig(cov_matrix)
+
+print("Eigenvalues:\n", eigen_values)
+
+
+print("\nEigenvectors:\n", eigen_vectors)
+
+```
+
+### 📸 Output
+
+<img width="369" height="145" alt="image" src="https://github.com/user-attachments/assets/b664a748-b2cb-47a5-b718-1a4d114d2fd7" />
+
+
+> 💡 **Observation:** Eigenvectors represent principal directions, while Eigenvalues indicate the amount of variance along those directions.
+
+---
+## 🔹 Question 2 — Perform LU Decomposition of the dataset matrix 
+
+```python
+# 
+
+# LU Decomposition
+P, L, U = lu(cov_matrix)
+
+print("Permutation Matrix (P):\n", P)
+
+print("\nLower Triangular Matrix (L)\n:", L)
+
+
+print("\nUpper Triangular Matrix (U):\n",U)
+
+```
+
+### 📸 Output
+
+<img width="357" height="299" alt="image" src="https://github.com/user-attachments/assets/576b1695-3c32-4f0e-83c8-bffff5ba4192" />
+
+---
+## 🔹 Question 3 — Singular Value Decomposition (SVD)
+
+### 🎯 Objective
+
+Perform Singular Value Decomposition for matrix factorization.
+
+```python
+# 
+# Singular Value Decomposition
+U, S, VT = np.linalg.svd(matrix)
+
+print("U Matrix:\n", U)
+
+
+print("\nSingular Values:\n", S)
+
+
+print("\nV Transpose Matrix:\n", VT)
+
+```
+
+### 📸 Output
+
+<img width="568" height="446" alt="image" src="https://github.com/user-attachments/assets/9d8d6960-e731-4af8-bf14-fd584cac9502" />
+
+> 💡 **Observation:** SVD decomposes a matrix into three matrices, making dimensionality reduction and data compression possible.
+
+---
+
+# 📉 Part E — Dimensionality Reduction
+
+---
+
+## 🔹 Question 1 — Principal Component Analysis (PCA)
+
+### 🎯 Objective
+
+Reduce the dimensionality of the dataset while preserving maximum variance.
+
+```python
+# from sklearn.decomposition import PCA
+
+X = data[['math_score', 'science_score', 'english_score']]
+
+# Apply PCA
+pca = PCA(n_components=2)
+
+X_pca = pca.fit_transform(X)
+
+print("First 5 PCA Components:\n", X_pca[:5])
+
+```
+
+### 📸 Output
+
+<img width="289" height="132" alt="image" src="https://github.com/user-attachments/assets/b85d6f04-5525-42ab-bd46-15ad78626b87" />
+
+
+> 💡 **Observation:** PCA successfully reduces dimensions while retaining most of the important information.
+
+---
+
+## 🔹 Question 2 — Linear Discriminant Analysis (LDA)
+
+### 🎯 Objective
+
+Perform Linear Discriminant Analysis to maximize class separability.
+
+```python
+# # Step 1: Create Categories
+
+
+# Create target labels
+data['Category'] = np.where(
+    data['overall_score'] >= data['overall_score'].mean(),
+    'Above Average',
+    'Below Average'
+)
+
+print(data[['overall_score', 'Category']].head())
+
+# Step 2: Encode Labels
+
+from sklearn.preprocessing import LabelEncoder
+
+encoder = LabelEncoder()
+
+y = encoder.fit_transform(data['Category'])
+
+# Step 3: Select Features
+
+X = data[['math_score',
+          'science_score',
+          'english_score']]
+
+# Step 4: Apply LDA
+
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+
+lda = LinearDiscriminantAnalysis(n_components=1)
+
+X_lda = lda.fit_transform(X, y)
+
+print("\nLDA Fit Transform:\n", X_lda[:10])
+
+# Step 5 Visualize LDA
+
+plt.figure(figsize=(8,5))
+
+plt.scatter(
+    X_lda,
+    np.zeros(len(X_lda)),
+    c=y,
+    cmap='coolwarm',
+    alpha=0.7
+)
+
+plt.xlabel("Linear Discriminant")
+plt.title("LDA Classification of Students")
+
+plt.yticks([])
+
+plt.show()
+```
+
+### 📸 Output
+
+<img width="566" height="707" alt="image" src="https://github.com/user-attachments/assets/caced441-21a1-47d2-9d53-97463a3ffa83" />
+
+
+> 💡 **Observation:** LDA improves class separation by finding the most discriminative feature combinations.
 
 ---
 
@@ -908,3 +1172,6 @@ Separate different classes using Linear Discriminant Analysis.
 </div>
 
 ---
+
+
+
