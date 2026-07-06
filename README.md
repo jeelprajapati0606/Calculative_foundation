@@ -25,7 +25,7 @@
 
 ### 🚀 Quick Access
 
-<a href="#">
+<a href="https://drive.google.com/file/d/1uw5a9HANxLyofMDP6BNYleWdTCh7qiE2/view?usp=sharing">
 <img src="https://img.shields.io/badge/🎥_Project_Demo-red?style=for-the-badge"/>
 </a>
 
@@ -158,21 +158,6 @@ Advanced Concepts
 ├── Principal Component Analysis (PCA)
 └── Linear Discriminant Analysis (LDA)
 ```
-
----
-
-# 📑 Table of Contents
-
-- [🌟 Project Overview](#-project-overview)
-- [✨ Key Features](#-key-features)
-- [📊 Dataset](#-dataset)
-- [📖 Theory Concepts](#-theory-concepts)
-- [💻 Practical Implementation](#-practical-implementation)
-- [📈 Results](#-results)
-- [🛠 Technologies Used](#-technologies-used)
-- [⚙ Installation](#-installation)
-- [📂 Folder Structure](#-folder-structure)
-- [👨‍💻 Author](#-author)
 
 ---
 
